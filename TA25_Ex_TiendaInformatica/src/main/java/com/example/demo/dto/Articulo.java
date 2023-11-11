@@ -30,7 +30,7 @@ public class Articulo {
 	}
 	
 	public Articulo(Integer codigo, String nombre, Integer precio, Fabricante fabricante){
-		//super();
+		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.precio = precio;

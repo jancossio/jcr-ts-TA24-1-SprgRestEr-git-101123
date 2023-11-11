@@ -34,7 +34,7 @@ public class Fabricante {
 	}
 	
 	public Fabricante(int codigo, String nombre){
-		//super();
+		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 	}

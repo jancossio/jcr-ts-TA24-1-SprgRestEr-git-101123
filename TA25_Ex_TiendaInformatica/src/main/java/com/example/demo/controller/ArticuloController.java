@@ -17,24 +17,24 @@ import com.example.demo.service.ArticuloServiceImpl;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/articulos")
 public class ArticuloController {
 
 	@Autowired
 	ArticuloServiceImpl articuloServiceImpl;
 	
-	@GetMapping("/articulos")
+	@GetMapping("/all")
 	public List<Articulo> listarArticulo(){
 		return articuloServiceImpl.listarArticulos();
 	}
 	
-	@PostMapping("/articulos")
+	@PostMapping("/add")
 	public Articulo salvarArticulo(@RequestBody Articulo articulo) {
 		
 		return articuloServiceImpl.guardarArticulo(articulo);
 	}
 	
-	@GetMapping("/articulos/{codigo}")
+	@GetMapping("/{codigo}")
 	public Articulo articuloXID(@PathVariable(name="codigo") Integer codigo) {
 		
 		Articulo articulo_xid= new Articulo();
@@ -46,7 +46,7 @@ public class ArticuloController {
 		return articulo_xid;
 	}
 	
-	@PutMapping("/articulos/{codigo}")
+	@PutMapping("/{codigo}")
 	public Articulo actualizarArticulo(@PathVariable(name="codigo")Integer codigo,@RequestBody Articulo articulo) {
 		
 		Articulo articulo_seleccionado= new Articulo();
@@ -65,7 +65,7 @@ public class ArticuloController {
 		return articulo_actualizado;
 	}
 	
-	@DeleteMapping("/articulos/{codigo}")
+	@DeleteMapping("/{codigo}")
 	public void eliminarArticulo(@PathVariable(name="codigo")Integer codigo) {
 		articuloServiceImpl.eliminarArticulo(codigo);
 	}

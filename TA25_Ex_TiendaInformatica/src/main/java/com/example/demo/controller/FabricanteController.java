@@ -17,24 +17,24 @@ import com.example.demo.service.FabricanteServiceImpl;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/fabricantes")
 public class FabricanteController {
 
 	@Autowired
 	FabricanteServiceImpl fabricanteServiceImpl;
 	
-	@GetMapping("/fabricantes")
+	@GetMapping("/all")
 	public List<Fabricante> listarFabricantes(){
 		return fabricanteServiceImpl.listarFabricantes();
 	}
 	
-	@PostMapping("/fabricantes")
+	@PostMapping("/add")
 	public Fabricante salvarFabricante(@RequestBody Fabricante fabricante) {
 		
 		return fabricanteServiceImpl.guardarFabricante(fabricante);
 	}
 	
-	@GetMapping("/fabricantes/{codigo}")
+	@GetMapping("/{codigo}")
 	public Fabricante fabricanteXID(@PathVariable(name="codigo") Integer codigo) {
 		
 		Fabricante video_xid= new Fabricante();
@@ -44,7 +44,7 @@ public class FabricanteController {
 		return video_xid;
 	}
 	
-	@PutMapping("/fabricantes/{codigo}")
+	@PutMapping("/{codigo}")
 	public Fabricante actualizarFabricante(@PathVariable(name="codigo")Integer codigo,@RequestBody Fabricante fabricante) {
 		
 		Fabricante articulo_seleccionado= new Fabricante();
@@ -59,7 +59,7 @@ public class FabricanteController {
 		return articulo_actualizado;
 	}
 	
-	@DeleteMapping("/fabricantes/{codigo}")
+	@DeleteMapping("/{codigo}")
 	public void eliminarFabricante(@PathVariable(name="codigo")Integer codigo) {
 		fabricanteServiceImpl.eliminarFabricante(codigo);
 	}
